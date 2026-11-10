@@ -4,11 +4,19 @@
 <meta charset="utf-8">
 <title>جاري التحويل...</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="refresh" content="0; url=https://qeyam.org.kw/donation/ar/32">
-<script>location.replace("https://qeyam.org.kw/donation/ar/32");</script>
+<noscript><meta http-equiv="refresh" content="0; url=https://qeyam.org.kw/donation/ar/32"></noscript>
+<script>
+(function () {
+  var fallback = "https://qeyam.org.kw/donation/ar/32";
+  function go(u) { location.replace(u); }
+  fetch("target.json?t=" + Date.now(), { cache: "no-store" })
+    .then(function (r) { return r.json(); })
+    .then(function (d) { go(d && /^https:\/\//.test(d.url) ? d.url : fallback); })
+    .catch(function () { go(fallback); });
+})();
+</script>
 </head>
 <body style="font-family:sans-serif;text-align:center;padding:40px">
 <p>جاري التحويل إلى صفحة التبرع...</p>
-<p><a href="https://qeyam.org.kw/donation/ar/32">اضغط هنا إن لم يتم التحويل تلقائياً</a></p>
 </body>
 </html>
