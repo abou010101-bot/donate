@@ -60,7 +60,8 @@ def main():
 
     name, sub = a.name.strip(), a.sub.strip()
     if name:
-        bottom = f'<div class="name">{rtl_text(name)}</div>'
+        size = 64 if len(name) <= 16 else (52 if len(name) <= 26 else 44)
+        bottom = f'<div class="name" style="font-size:{size}px">{rtl_text(name)}</div>'
         if sub:
             bottom += f'<div class="sub">{rtl_text(sub)}</div>'
     else:
